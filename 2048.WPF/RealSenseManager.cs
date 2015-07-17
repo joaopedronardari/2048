@@ -9,7 +9,7 @@ namespace _2048.WPF
 {
     class RealSenseManager
     {
-        // TODO - Components
+        // TODO - 1. Components
 
         public OnGameGestureFired gameGestureFired;
 
@@ -17,32 +17,32 @@ namespace _2048.WPF
         {
             this.gameGestureFired = gameGestureFired;
 
-            // TODO - Constructor
+            // TODO - 2. Constructor
         }
 
         public void Start() 
         {
-            // TODO - Start Method
+            // TODO - 3. Start Method
         }
 
         private void IterateFrames()
         {
-            // TODO - Iterate Frames Method
+            // TODO - 4. Iterate Frames Method
         }
 
         private void ProcessGestures(PXCMHandData handData)
         {
-            // TODO - Process Gestures Method
+            // TODO - 5. Process Gestures Method
         }
 
         private void ReleaseResources()
         {
-            // TODO - Release Resources Method
+            // TODO - 6. Release Resources Method
         }
 
         public void Stop()
         {
-            // TODO - Stop Method
+            // TODO - 7. Stop Method
         }
     }
 }
