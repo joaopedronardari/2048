@@ -25,11 +25,6 @@ namespace _2048.WPF
             // TODO - Start Method
         }
 
-        public void StartEventBased()
-        {
-            // TODO - Start Event Based Method
-        }
-
         private void IterateFrames()
         {
             // TODO - Iterate Frames Method
