@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace _2048.WPF
 {
     class RealSenseManager
     {
-        // TODO - Implement Components
+        // TODO - Components
 
         public OnGameGestureFired gameGestureFired;
 
@@ -16,17 +17,37 @@ namespace _2048.WPF
         {
             this.gameGestureFired = gameGestureFired;
 
-            // TODO - COMPLETE CODE
+            // TODO - Constructor
         }
 
         public void Start() 
         {
-            // TODO - COMPLETE CODE
+            // TODO - Start Method
         }
 
-        public void Stop() 
-        { 
-            // TODO - COMPLETE CODE
+        public void StartEventBased()
+        {
+            // TODO - Start Event Based Method
+        }
+
+        private void IterateFrames()
+        {
+            // TODO - Iterate Frames Method
+        }
+
+        private void ProcessGestures(PXCMHandData handData)
+        {
+            // TODO - Process Gestures Method
+        }
+
+        private void ReleaseResources()
+        {
+            // TODO - Release Resources Method
+        }
+
+        public void Stop()
+        {
+            // TODO - Stop Method
         }
     }
 }

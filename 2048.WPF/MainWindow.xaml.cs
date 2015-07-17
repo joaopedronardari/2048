@@ -30,8 +30,7 @@ namespace _2048.WPF
 
             // Start Manager
             realSenseManager = new RealSenseManager(GameGestureFired);
-            Thread thread = new Thread(realSenseManager.Start);
-            thread.Start();
+            realSenseManager.Start();
         }
 
         /// <summary>
@@ -103,7 +102,6 @@ namespace _2048.WPF
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            // Stop Manager
             realSenseManager.Stop();
         }
     }
