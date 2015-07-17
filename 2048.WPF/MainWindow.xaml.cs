@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using _2048.Model;
+using System.Threading;
 
 namespace _2048.WPF
 {
@@ -14,6 +15,8 @@ namespace _2048.WPF
 
         private readonly GameGrid _gameGrid;
 
+        RealSenseManager realSenseManager;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,6 +27,43 @@ namespace _2048.WPF
 
             this.SizeChanged += OnSizeChanged;
             this.KeyDown += MainWindow_KeyDown;
+
+            // Start Manager
+            realSenseManager = new RealSenseManager(GameGestureFired);
+            Thread thread = new Thread(realSenseManager.Start);
+            thread.Start();
+        }
+
+        /// <summary>
+        /// Game Gesture Delegate
+        /// </summary>
+        /// <param name="gameGesture"></param>
+        void GameGestureFired(GameGesture gameGesture)
+        {
+            MoveDirection? direction = null;
+            switch (gameGesture)
+            {
+                case GameGesture.swipe_up:
+                    direction = MoveDirection.Up;
+                    break;
+                case GameGesture.swipe_down:
+                    direction = MoveDirection.Down;
+                    break;
+                case GameGesture.swipe_left:
+                    direction = MoveDirection.Left;
+                    break;
+                case GameGesture.swipe_right:
+                    direction = MoveDirection.Right;
+                    break;
+            }
+
+            if (direction != null)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    _gameGrid.HandleMove(direction.Value);
+                }));
+            }
         }
 
         void MainWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs Args)
@@ -59,6 +99,12 @@ namespace _2048.WPF
 
             _gameGrid.Width = gridSize;
             _gameGrid.Height = gridSize;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            // Stop Manager
+            realSenseManager.Stop();
         }
     }
 }
