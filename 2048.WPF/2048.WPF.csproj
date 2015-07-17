@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameGesture.cs" />
+    <Compile Include="RealSenseManager.cs" />
     <Page Include="..\2048\GameGrid.xaml">
       <Link>GameGrid.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
